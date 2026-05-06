@@ -1,4 +1,4 @@
-let todoData = [];
+let todosData = [];
 const createToDo = document.querySelector(".create-to-do");
 const modalCreate = document.querySelector(".create-to-dos");
 const container = document.querySelector(".container");
@@ -7,7 +7,6 @@ const listItemSection = document.querySelector(".list-item");
 const nameInputTodo = document.querySelector(".name-todo");
 const dateInputTodo = document.querySelector(".date-to-do");
 const doneBtn = document.querySelector(".done");
-
 const showModal = () => {
   modalCreate.classList.remove("hide");
   container.classList.add("hidden");
@@ -22,24 +21,38 @@ const createActivity = () => {
     textTodo: nameInputTodo.value,
     date: dateInputTodo.value,
   };
-  todoData.push(todo);
+  todosData.push(todo);
+  hideModal();
+  saveDataInLocal();
+};
+const saveDataInLocal = () => {
+  todosData.forEach((data) => {
+    localStorage.setItem("name", data.textTodo);
+  });
 
-  listItemSection.insertAdjacentHTML(
-    "beforeend",
-    `
-     <div class="new-to-do">
-      <p class="text-to-do">${todo.textTodo}</p>
+  loadDataLocal();
+};
+
+const loadDataLocal = () => {
+  const nametodo = localStorage.getItem("name");
+  if (nametodo) {
+    listItemSection.insertAdjacentHTML(
+      "beforeend",
+      `
+    <div class="new-to-do">
+      <p class="text-to-do">${nametodo}</p>
          <div class="section-button">
                 <button class="sucsses">Sucsses</button>
                 <button class="edit-to-do">Edit</button>
                 <button class="remove-to-do">Remove</button>
          </div>
-     </div>
-    `,
-  );
-  hideModal();
-};
+    </div>
 
+
+    `,
+    );
+  }
+};
 doneBtn.addEventListener("click", createActivity);
 cancelBtn.addEventListener("click", hideModal);
 createToDo.addEventListener("click", showModal);
