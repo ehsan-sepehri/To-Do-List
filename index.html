@@ -23,22 +23,30 @@
             </div>
           </section>
           <section class="list-item">
-            <button class="create-to-do">Create To Do</button>
+            <button class="create-to-do"><span>+</span>CreateToDo</button>
             <!--TODOs section  loded from js  -->
-            <div class="new-to-do">
-              <p class="text-to-do">Lorem ipsum dolor sit amet consectetur</p>
-              <div class="section-button">
-                <button class="sucsses">Sucsses</button>
-                <button class="edit-to-do">Edit</button>
-                <button class="remove-to-do">Remove</button>
-              </div>
-            </div>
           </section>
         </div>
       </div>
     </div>
-    <section class="create-to-dos">
-      <input type="text" />
+    <section class="create-to-dos hide">
+      <p>hi What is today's activity?</p>
+      <div class="input-activity">
+        <input
+          class="text-todo name-todo"
+          type="text"
+          placeholder="Name of the activity"
+        />
+        <input
+          class="text-todo date-to-do"
+          type="text"
+          placeholder="Day of the activity"
+        />
+      </div>
+      <div class="butonnes">
+        <button class="cancel">Cancel</button>
+        <button class="done">Done</button>
+      </div>
     </section>
 
     <script src="./js/app.js"></script>
