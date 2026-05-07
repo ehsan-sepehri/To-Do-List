@@ -35,7 +35,7 @@ const saveDataInLocal = () => {
 };
 
 const loadDataLocal = () => {
-  listItemSection.innerHTML="";
+  listItemSection.innerHTML = "";
   const nametodo = JSON.parse(localStorage.getItem("name"));
 
   if (nametodo) {
@@ -59,12 +59,8 @@ const loadDataLocal = () => {
   }
   const removeBtn = document.querySelectorAll(".remove-to-do");
   removeBtn.forEach((event) => {
-
-    
     event.addEventListener("click", () => {
-    event.parentElement.parentElement.remove();
-    
-    
+      event.parentElement.parentElement.remove();
     });
   });
 };
